@@ -1,8 +1,4 @@
 <div class="form-group">
-  <%- if controller_name != 'sessions' %>
-    <hr class="border-dark my-5">
-    <%= link_to "アカウントを既にお持ちの方", new_session_path(resource_name), class: 'btn btn-dark btn-block' %><br />
-  <% end -%>
 
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
     <span class="text-secondary">※パスワードを忘れてしまった方は</span>
@@ -11,9 +7,21 @@
     <br />
   <% end -%>
 
+  <%- if devise_mapping.omniauthable? %>
+    <hr class="border-dark my-4">
+    <%= link_to(user_twitter_omniauth_authorize_path, class: "btn btn-twitter text-white btn-block") do %>
+      <i class="fa fa-twitter" aria-hidden="true"></i> Twitterでログイン
+    <% end%>
+  <% end -%>
+
   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-    <hr class="border-dark my-5">
-    <%= link_to "アカウントをお持ちでない方", new_registration_path(resource_name), class: 'btn btn-dark btn-block' %><br />
+    <%= link_to "アカウントをお持ちでない方", new_registration_path(resource_name), class: 'btn btn-dark btn-block' %>
+    <hr class="border-dark my-4">
+  <% end -%>
+
+   <%- if controller_name != 'sessions' %>
+    <%= link_to "アカウントを既にお持ちの方", new_session_path(resource_name), class: 'btn btn-dark btn-block' %>
+    <hr class="border-dark my-4">
   <% end -%>
 
   <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
@@ -22,11 +30,5 @@
 
   <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
     <%= link_to t('.didn_t_receive_unlock_instructions'), new_unlock_path(resource_name) %><br />
-  <% end -%>
-
-  <%- if devise_mapping.omniauthable? %>
-    <%- resource_class.omniauth_providers.each do |provider| %>
-      <%= link_to t('.sign_in_with_provider', provider: OmniAuth::Utils.camelize(provider)), omniauth_authorize_path(resource_name, provider) %><br />
-    <% end -%>
   <% end -%>
 </div>

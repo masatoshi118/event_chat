@@ -4,6 +4,7 @@
  */
 
  @import "bootstrap/scss/bootstrap";
+ @import "font-awesome";
 
 .base-container {
   @extend .container-fluid;
@@ -17,4 +18,11 @@
 
 .alert-alert {
   @extend .alert-danger;
+}
+
+.btn-twitter {
+  background-color: #1DA0F2;
+  & :hover {
+    opacity: 0.8;
+  }
 }
