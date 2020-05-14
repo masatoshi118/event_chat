@@ -1,0 +1,46 @@
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+     <%= link_to "EventChat", root_path, class: 'navbar-brand' %>
+    <% unless user_signed_in? %>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="ナビゲーションの切替">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+          </li>
+        </ul>
+      </div>
+    <% else %>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="ナビゲーションの切替">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <%= link_to "投稿一覧", root_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%# <%= link_to "イベント作成", new_event_path, class: 'nav-link' %> %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%# <%= link_to "マイーページ", current_user, class: 'nav-link' %> %>
+          </li>
+          <li class="nav-item active">
+            <%# <%= link_to "#{current_user.name}", current_user, class: 'nav-link' %> %>
+          </li>
+          <li class="nav-item active">
+            <%# <figure><%= image_tag current_user.image, :size => '40x40' %></figure> %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+  </nav>
+</header>

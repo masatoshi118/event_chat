@@ -1,0 +1,20 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap/scss/bootstrap";
+
+.base-container {
+  @extend .container-fluid;
+  max-width: 576px;
+  padding: 2rem;
+}
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
