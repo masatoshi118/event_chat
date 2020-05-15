@@ -28,16 +28,7 @@
             <%# <%= link_to "イベント作成", new_event_path, class: 'nav-link' %> %>
           </li>
           <li class="nav-item active">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%# <%= link_to "マイーページ", current_user, class: 'nav-link' %> %>
-          </li>
-          <li class="nav-item active">
-            <%# <%= link_to "#{current_user.name}", current_user, class: 'nav-link' %> %>
-          </li>
-          <li class="nav-item active">
-            <%# <figure><%= image_tag current_user.image, :size => '40x40' %></figure> %>
+            <%= render 'shared/dropdown' %>
           </li>
         </ul>
       </div>
