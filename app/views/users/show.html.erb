@@ -1,0 +1,13 @@
+<div class="card">
+  <%= image_tag @user.image, :size => '180x180', class: "card-image-top" %>
+  <div class="card-body">
+    <h4 class="card-title"><%= @user.name %></h4>
+    <p class="card-text">
+      <%= @user.description %>
+    </p>
+    <a href="https://twitter.com/<%= @user.nickname %>" class="btn btn-primary"><i class="fa fa-twitter" aria-hidden="true"></i> My Twitter</a>
+    <%= form_for(@user, url:{ action: 'user_update' }) do |f| %>
+      <%= f.submit '最新情報に更新' %>
+    <% end %>
+  </div>
+</div>
