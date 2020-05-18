@@ -19,7 +19,6 @@ class UsersController < ApplicationController
   def user_update
     user = User.find(params[:id])
     search_id = user[:uid].to_i
-
     if request.patch?
       image_url = "#{client.user(search_id).profile_image_url_https}"
       user.update(
@@ -30,7 +29,7 @@ class UsersController < ApplicationController
         description: client.user(search_id).description
       )
     end
-    redirect_to user_path
+    redirect_to user_path(user.id)
   end
 
   private
@@ -40,14 +39,12 @@ class UsersController < ApplicationController
 
     def client
       require 'twitter'
-      client = Twitter::REST::Client.new do |config|
+      return client = Twitter::REST::Client.new do |config|
         config.consumer_key = Rails.application.credentials.twitter[:TWITTER_API_KEY]
         config.consumer_secret = Rails.application.credentials.twitter[:TWITTER_API_SECRET_KEY]
         config.access_token = Rails.application.credentials.twitter[:TWITTER_ACCESS_TOKEN]
         config.access_token_secret = Rails.application.credentials.twitter[:TWITTER_ACCESS_TOKEN_SECRET]
       end
-
-      client
     end
 
     def user_signin_check
