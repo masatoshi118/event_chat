@@ -27,4 +27,30 @@ class User < ApplicationRecord
     "#{auth.uid}-#{auth.provider}@example.com"
   end
 
+  def self.update_for_oauth(user, auth)
+    user.update(
+      name: auth.info.name,
+      uid: auth.uid,
+      provider: auth.provider,
+      image: auth.info.image.gsub("_normal", ""),
+      nickname: auth.info.nickname,
+    )
+  end
+
+  # 現在のpassword無しでemailとpasswordを変更できるようにする
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
+  end
+
 end
+
+
