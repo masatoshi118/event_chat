@@ -17,3 +17,8 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 require("bootstrap/dist/js/bootstrap")
+
+import bsCustomFileInput from 'bs-custom-file-input';
+$(document).on('ready turbolinks:load', function() {
+  bsCustomFileInput.init();
+})

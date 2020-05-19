@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_065250) do
     t.string "provider"
     t.string "name"
     t.string "nickname"
-    t.string "image", default: "default_image.png"
+    t.string "image"
     t.string "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

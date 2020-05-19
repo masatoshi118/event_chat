@@ -9,6 +9,8 @@ ja:
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
+        description: 自己紹介
+        image: 画像
         name: 名前
         email: Eメール
         encrypted_password: 暗号化パスワード

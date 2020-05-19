@@ -4,6 +4,7 @@
  */
 
  @import "bootstrap/scss/bootstrap";
+ @import 'file-upload-with-preview/dist/file-upload-with-preview.min.css';
  @import "font-awesome";
 
 .base-container {
@@ -30,5 +31,19 @@
 .dropdown:hover {
   .dropdown-menu {
     display: block;
+  }
+}
+
+.card-image-top {
+  margin: {
+    top: 20px;
+    left: 20px;
+  }
+}
+
+.card-nickname {
+  margin: {
+    top: 0px;
+    bottom: 12px;
   }
 }
