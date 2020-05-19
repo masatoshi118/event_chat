@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
+  mount_uploader :image, ImageUploader
   # ユーザーをuidで検索する。無ければproviderから情報を取得し作成する。
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
@@ -14,7 +15,7 @@ class User < ApplicationRecord
         provider: auth.provider,
         email:  User.duummy_email(auth),
         password: Devise.friendly_token[0, 20],
-        image:  auth.info.image.gsub("_normal", ""),
+        remote_image_url:  auth.info.image.gsub("_normal", ""),
         name: auth.info.name,
         nickname: auth.info.nickname,
         description: auth.info.description
@@ -32,8 +33,8 @@ class User < ApplicationRecord
       name: auth.info.name,
       uid: auth.uid,
       provider: auth.provider,
-      image: auth.info.image.gsub("_normal", ""),
-      nickname: auth.info.nickname,
+      remote_image_url: auth.info.image.gsub("_normal", ""),
+      nickname: auth.info.nickname
     )
   end
 

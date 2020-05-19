@@ -1,13 +1,15 @@
 <div class="dropdown">
   <!-- 切替ボタンの設定 -->
   <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <figure><%= image_tag current_user.image, :size => '40x40' %></figure>
+    <figure><%= image_tag current_user.image_url, :size => '40x40' %></figure>
   </a>
   <!-- ドロップメニューの設定 -->
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <h6 class="dropdown-header"><%= current_user.name %></h6>
     <%= link_to "マイページ", user_path(current_user.id), class: 'dropdown-item' %>
+    <div class="dropdown-divider"></div>
     <%= link_to "アカウント管理", edit_user_registration_path, class: 'dropdown-item' %>
+    <%= link_to "プロフィール変更", edit_user_path(current_user), class: 'dropdown-item' %>
     <%= link_to "Twitter連携",user_twitter_omniauth_authorize_path, class: 'dropdown-item' %>
     <div class="dropdown-divider"></div>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>

@@ -19,22 +19,24 @@ class UsersController < ApplicationController
   def user_update
     user = User.find(params[:id])
     search_id = user[:uid].to_i
-    if request.patch?
-      image_url = "#{client.user(search_id).profile_image_url_https}"
+    if request.patch? && !search_id.zero?
       user.update(
         name: client.user(search_id).name,
         nickname: client.user(search_id).screen_name,
         # 式展開しないと文字列形式で取得できない
-        image: image_url.gsub("_normal", ""),
+        remote_image_url: "#{client.user(search_id).profile_image_url_https}".gsub("_normal", ""),
         description: client.user(search_id).description
       )
+    else
+      flash[:alert] = 'Twitter連携後に使用することができます'
+      redirect_to (edit_user_path(user)) and return
     end
     redirect_to user_path(user.id)
   end
 
   private
     def user_params
-        params.require(:user).permit(:name, :nickname, :email, :location)
+        params.require(:user).permit(:name, :image, :description)
     end
 
     def client

@@ -16,7 +16,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       if user_check
         flash[:alert] = I18n.t('devise.omniauth_callbacks.failure', kind: provider.capitalize, reason: 'このアカウントは既に使用されています')
-        redirect_to (root_path) and return 
+        redirect_to (root_path) and return
       else
         User.update_for_oauth(@user, auth)
       end
