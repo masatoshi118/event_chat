@@ -33,6 +33,15 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'rmagick'
 
+# markdown
+gem 'redcarpet', '~> 2.3.0'
+# シンタックスハイライト
+gem 'coderay'
+
+#検索機能
+gem 'ransack'
+
+
 # デバッグ
 gem 'pry-byebug', group: :development
 

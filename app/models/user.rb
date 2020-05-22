@@ -1,8 +1,10 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
+
+
+  has_many :events, dependent: :destroy
 
   mount_uploader :image, ImageUploader
   # ユーザーをuidで検索する。無ければproviderから情報を取得し作成する。
@@ -28,6 +30,7 @@ class User < ApplicationRecord
     "#{auth.uid}-#{auth.provider}@example.com"
   end
 
+  # 後からTwitter認証するためのメソッド
   def self.update_for_oauth(user, auth)
     user.update(
       name: auth.info.name,
