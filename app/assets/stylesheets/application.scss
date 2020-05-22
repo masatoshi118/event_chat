@@ -4,8 +4,14 @@
  */
 
  @import "bootstrap/scss/bootstrap";
- @import 'file-upload-with-preview/dist/file-upload-with-preview.min.css';
+ @import "tempusdominus-bootstrap-4/src/sass/tempusdominus-bootstrap-4";
  @import "font-awesome";
+
+$header-color: #4E8D9F;
+$fotter-color: #322D2A;
+$non-active-cplor: #C5B5A6;
+$active-color: #E6D177;
+$bace-color: #F4E2CA;
 
 .base-container {
   @extend .container-fluid;
@@ -19,6 +25,10 @@
 
 .alert-alert {
   @extend .alert-danger;
+}
+
+.navbar {
+  background-color: $header-color;
 }
 
 .btn-twitter {
@@ -46,4 +56,17 @@
     top: 0px;
     bottom: 12px;
   }
+}
+
+.event-accepting {
+  border-radius: 4px;
+}
+
+.event-closed {
+  border-radius: 4px;
+}
+
+.name-label {
+  background-color: $bace-color;
+  border-radius: 4px;
 }

@@ -28,6 +28,12 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      event:
+        title: タイトル
+        venue: 開催地
+        datetime: 開催日時
+        image: 画像
+        content: 内容
     models:
       user: ユーザ
   devise:

@@ -1,0 +1,25 @@
+<div class="media">
+  <div class="mr-3">
+      <a class="image_link" href="<%= event_path(event.id) %>" title="<%= event.title %>">
+        <%= image_tag event.event_image_url, size: '100x80', alt: "event image" %>
+      </a>
+      <% if event.datetime > Date.current %>
+        <span class="d-block bg-warning mt-2 text-center"><%= "開催前" %></span>
+      <% else %>
+        <span class="d-block bg-secondary mt-2 text-center text-white"><%= "開催済み" %></span>
+      <% end %>
+  </div>
+  <div class="media-body">
+    <h5 class="mt-0"><%= link_to "#{event.title}", event_path(event.id), class: "text-dark " %></h5>
+    <p class="text-black mb-0">【　日時　】 <%= l event.datetime, format: '%Y年 %-m月 %-d日 %H:%M' %></p>
+    <p class="text-black mb-1">【開催場所】 <%= event.venue %></p>
+    <div class="d-inline-block mt-2 ml-2 name-label">
+      <a class="name-label d-flex p-1 text-black-50" href="<%= user_path(event.user) %>">
+        <%= image_tag event.user.image_url, :size => '20x20', class: "mr-1" %>
+        <small><%= event.user.name %></small>
+      </a>
+    </div>
+    <small class="float-right pt-3"><%= l event.updated_at, format:'投稿日：%Y / %-m / %-d' %></small>
+  </div>
+</div>
+<hr>

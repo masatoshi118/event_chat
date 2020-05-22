@@ -22,3 +22,9 @@ import bsCustomFileInput from 'bs-custom-file-input';
 $(document).on('ready turbolinks:load', function() {
   bsCustomFileInput.init();
 })
+
+require("moment/locale/ja")
+require("tempusdominus-bootstrap-4")
+$(function () {
+  $('#datetimepicker1').datetimepicker();
+});
