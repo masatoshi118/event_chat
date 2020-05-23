@@ -29,7 +29,7 @@ $form-text-color: #495057;
   @extend .alert-danger;
 }
 
-.navbar {
+.main-color {
   background-color: $header-color;
 }
 
@@ -118,4 +118,15 @@ table {
     padding: 7px;
   }
 }
+
+.tab-bar {
+  border-radius: 4px 4px 0 0;
+}
+
+.tab-item {
+  a {
+    color: #fff;
+  }
+}
+
 
