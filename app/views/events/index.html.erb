@@ -1,5 +1,5 @@
 <%= render 'shared/flash_messages' %>
 
-<% @events.each do |event| %>
+<% @events.order(updated_at: "DESC").each do |event| %>
   <%= render event %>
 <% end %>
