@@ -23,7 +23,7 @@ class EventsController < ApplicationController
 
   def create
     event = current_user.events.create!(event_params)
-    # Join.create!(user_id: current_user.id, event_id: event.id)
+    Join.create!(user_id: current_user.id, event_id: event.id)
     redirect_to action: :index
   end
 

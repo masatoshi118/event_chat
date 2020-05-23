@@ -12,6 +12,8 @@ $fotter-color: #322D2A;
 $non-active-cplor: #C5B5A6;
 $active-color: #E6D177;
 $bace-color: #F4E2CA;
+$form-color: #E9ECEF;
+$form-text-color: #495057;
 
 .base-container {
   @extend .container-fluid;
@@ -66,7 +68,54 @@ $bace-color: #F4E2CA;
   border-radius: 4px;
 }
 
+.event-top {
+  margin-top: 30px;
+}
+
 .name-label {
   background-color: $bace-color;
   border-radius: 4px;
 }
+
+.table-ditale {
+  margin-bottom: 40px;
+}
+
+table {
+  width: 100%;
+  border-top: 1px solid $form-color;
+  border-right: 1px solid $form-color;
+
+
+  th {
+    width: 30%;
+    background-color: $form-color;
+    box-sizing: border-box;
+    padding: 15px;
+    font-weight: normal;
+    text-align: center;
+    color: $form-text-color;
+
+    &:first-of-type {
+      border-bottom: 1px solid #fff;
+    }
+  }
+
+  td {
+    text-align: left;
+    box-sizing: border-box;
+    padding: 15px;
+    border-bottom: 1px solid $form-color;
+  }
+}
+
+.event-detaile {
+  border-radius: 4px;
+  border: 1px solid $form-color;
+
+  .event-title {
+    background-color: $form-color;
+    padding: 7px;
+  }
+}
+
