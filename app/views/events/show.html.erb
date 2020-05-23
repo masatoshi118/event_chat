@@ -1,0 +1,72 @@
+<div>
+  <% unless @event.user == current_user %>
+    <% if @event.joins.exists?(user_id: current_user.id) %>
+      <%= link_to 'キャンセル', event_joins_path(@event), method: :delete, class: "btn btn-danger btn-block" %>
+    <% else %>
+      <%= link_to '参加する', event_joins_path(@event), method: :post, class: "btn btn-primary btn-block" %>
+    <% end %>
+  <% end %>
+
+  <p>
+    <% if @event.user == current_user %>
+      <%= link_to "削除", event_path(@event), method: :delete, data: { confirm: "削除しますか？" } %>
+      <%= link_to "編集", edit_event_path(@event) %>
+    <% end %>
+  </p>
+</div>
+
+<div class="mb-3 event-top">
+  <h3><%= @event.title %></h3>
+  <%= image_tag @event.event_image_url, size: '500x350', alt: "event image", class:"img-fluid rounded mx-auto d-block" %>
+</div>
+
+<div class="mb-3">
+  <table class="content">
+    <tr>
+      <th>日時</th>
+      <td><%= l @event.datetime, format: '%Y年 %-m月 %-d日 %H:%M' %></td>
+    </tr>
+    <tr>
+      <th>開催場所</th>
+      <td><%= @event.venue %></td>
+    </tr>
+    <tr>
+      <th>参加者</th>
+      <td>
+        <% @event.joined_users.each do |participant| %>
+          <a href="<%= user_path(participant) %>">
+            <%= image_tag participant.image_url, :size => '20x20', class: "mr-1" %>
+          </a>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="event-detaile mb-3">
+  <h6 class="event-title">イベント詳細</h6>
+  <span class="detale-body"><%= markdown(@event.content).html_safe %></span>
+</div>
+
+<div>
+  <% unless @event.user == current_user %>
+    <% if @event.joins.exists?(user_id: current_user.id) %>
+      <%= link_to 'キャンセル', event_joins_path(@event), method: :delete, class: "btn btn-danger btn-block" %>
+    <% else %>
+      <%= link_to '参加する', event_joins_path(@event), method: :post, class: "btn btn-primary btn-block" %>
+    <% end %>
+  <% end %>
+
+  <p>
+    <% if @event.user == current_user %>
+      <%= link_to "削除", event_path(@event), method: :delete, data: { confirm: "削除しますか？" } %>
+      <%= link_to "編集", edit_event_path(@event) %>
+    <% end %>
+  </p>
+</div>
+
+
+<div>
+  <%= link_to 'トークルーム', "/events/#{@event.id}/chat_room", class: "btn btn-primary btn-block" %>
+</div>
+
