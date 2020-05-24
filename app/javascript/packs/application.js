@@ -28,3 +28,9 @@ require("tempusdominus-bootstrap-4")
 $(function () {
   $('#datetimepicker1').datetimepicker();
 });
+
+$(function() {
+  $('#datetimepicker-date-only').datetimepicker({
+    format: 'L'
+  });
+});
