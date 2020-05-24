@@ -53,7 +53,7 @@ class EventsController < ApplicationController
     end
 
     def search_params
-      params.require(:q).permit(:title_cont, :venue_cont, :datetime_lteq_end_of_day)
+      params.require(:q).permit(:title_or_content_cont, :venue_cont, :datetime_lteq_end_of_day)
     end
 
 end

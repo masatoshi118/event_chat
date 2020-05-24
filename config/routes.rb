@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :events do
     resource :joins, only: [:create, :destroy]
   end
+  get 'search', to: 'events#search'
 end

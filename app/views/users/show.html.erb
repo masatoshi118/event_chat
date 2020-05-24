@@ -22,7 +22,6 @@
   </li>
 </ul>
 
-<!-- パネル部分 -->
 <div id="myTabContent" class="tab-content mt-3">
   <div id="home" class="tab-pane active" role="tabpanel" aria-labelledby="home-tab">
     <% @user.joined_events.order(updated_at: "DESC").each do |event| %>

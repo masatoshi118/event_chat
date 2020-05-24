@@ -4,5 +4,6 @@ Ransack.configure do |config|
                         # Arelの述語を指定。<=で検索したいのでlteqを使う。
                         arel_predicate: 'lteq',
                         # インプットの整形。その日の終わりまでを検索対象に含める。
-                        formatter: proc { |v| v.end_of_day }
+                        formatter: proc { |v| v.end_of_day },
+                        compounds: false
 end

@@ -17,7 +17,7 @@ $form-text-color: #495057;
 
 .base-container {
   @extend .container-fluid;
-  max-width: 576px;
+  max-width: 920px;
   padding: 2rem;
 }
 
@@ -27,6 +27,12 @@ $form-text-color: #495057;
 
 .alert-alert {
   @extend .alert-danger;
+}
+
+.wrapper {
+  padding: 0.5rem;
+  border: 1px solid $form-color;
+  border-radius: 0 0 4px 4px;
 }
 
 .main-color {

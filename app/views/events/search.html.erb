@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="col-md-9">
-    <h4 class="main-color tab-bar p-2 text-white mb-0">最新投稿</h4>
+      <h4 class="main-color tab-bar p-2 text-white mb-0">検索結果</h4>
       <div class="wrapper pl-2 pt-2 pr-2 ">
         <% @events.order(updated_at: "DESC").each do |event| %>
           <%= render event %>
