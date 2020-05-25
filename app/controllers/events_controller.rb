@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 
   def search
     @q = Event.ransack(search_params)
-    @events = @q.result.includes(:user)
+    @events = @q.result.includes(:user).page(params[:page]).per(10)
   end
 
   def show
