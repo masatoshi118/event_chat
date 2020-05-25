@@ -1,4 +1,4 @@
-class Join < ActiveRecord::Migration[6.0]
+class CreateJoins < ActiveRecord::Migration[6.0]
   def change
     create_table :joins do |t|
       t.integer :user_id, null: false, index: true
@@ -8,5 +8,6 @@ class Join < ActiveRecord::Migration[6.0]
     end
 
     add_index :joins, [:user_id, :event_id], unique: true
+
   end
 end
