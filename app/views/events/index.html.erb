@@ -13,6 +13,7 @@
         <% @events.order(updated_at: "DESC").each do |event| %>
           <%= render event %>
         <% end %>
+        <%= paginate @events %>
       </div>
     </div>
   </div>

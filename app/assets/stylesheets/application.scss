@@ -136,3 +136,31 @@ table {
 }
 
 
+.pagination {
+  justify-content: center;
+  >li{
+    >a{
+      border: none;     /*枠線をなくす*/
+      color: #696969;   /*文字の色を変える*/
+
+      .page-link {
+        background: $header-color;
+      }
+
+      &:hover {
+        border-radius: 30px;
+        color: #696969;
+      }
+    }
+  }
+  >.active {
+    >a {
+      background-color: $header-color;
+      border-radius: 20px;     /*角を丸くする*/
+    }
+    >.page-link {
+      background-color: $header-color;
+    }
+  }
+}
+

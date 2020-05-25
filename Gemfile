@@ -5,7 +5,7 @@ ruby '2.6.5'
 
 gem 'rails', '~> 6.0.3'
 gem 'mysql2', '>= 0.4.4'
-gem 'puma', '~> 4.1'
+gem "puma", ">= 4.3.5"
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
@@ -41,6 +41,8 @@ gem 'coderay'
 #検索機能
 gem 'ransack'
 
+# ページネーション
+gem 'kaminari'
 
 # デバッグ
 gem 'pry-byebug', group: :development
