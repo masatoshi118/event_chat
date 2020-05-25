@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <div class="side-bar">
+      <div class="side-bar mb-3">
         <%= render "search_form" %>
       </div>
     </div>
@@ -13,6 +13,7 @@
         <% @events.order(updated_at: "DESC").each do |event| %>
           <%= render event %>
         <% end %>
+        <%= paginate @events %>
       </div>
     </div>
   </div>

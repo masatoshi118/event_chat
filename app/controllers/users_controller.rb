@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @joined_events = @user.joined_events.order(updated_at: "DESC").page(params[:page]).per(5)
+    @holded_events = @user.events.order(updated_at: "DESC").page(params[:page]).per(5)
   end
 
   def edit
