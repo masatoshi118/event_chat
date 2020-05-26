@@ -8,7 +8,7 @@
  @import "font-awesome";
 
 $header-color: #4E8D9F;
-$fotter-color: #322D2A;
+$footer-color: #322D2A;
 $non-active-cplor: #C5B5A6;
 $active-color: #E6D177;
 $bace-color: #F4E2CA;
@@ -35,8 +35,21 @@ $form-text-color: #495057;
   border-radius: 0 0 4px 4px;
 }
 
+@media (min-width: 576px) {
+  .navbar-expand-sm {
+    .navbar-collapse {
+      justify-content: space-between;
+    }
+  }
+}
+
+
 .main-color {
   background-color: $header-color;
+}
+
+.active-color {
+  background-color: $active-color;
 }
 
 .btn-twitter {
@@ -172,7 +185,7 @@ table {
 }
 
 // メッセージ投稿フォーム
-footer {
+.input-form {
   max-width: 768px;
   padding: 1rem;
   margin: 0 auto;
@@ -194,4 +207,9 @@ footer {
   background-color: $bace-color;
   padding: 1rem;
   border-radius: 1rem;
+}
+
+.page-footer {
+  background-color: $footer-color;
+  color: white;
 }

@@ -1,11 +1,11 @@
 <header class="sticky-top">
   <nav class="navbar navbar-expand-sm navbar-dark main-color">
-     <%= link_to "EventChat", root_path, class: 'navbar-brand' %>
+     <h1><%= link_to "EventChat", root_path, class: 'navbar-brand' %></h1>
     <% unless user_signed_in? %>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="ナビゲーションの切替">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse float-right" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
             <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
@@ -19,7 +19,7 @@
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="ナビゲーションの切替">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse align-middle" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
             <%= link_to "投稿一覧", root_path, class: 'nav-link' %>
@@ -27,10 +27,8 @@
           <li class="nav-item active">
             <%= link_to "イベント作成", new_event_path, class: 'nav-link' %>
           </li>
-          <li class="nav-item active">
-            <%= render 'shared/dropdown' %>
-          </li>
         </ul>
+        <%= render 'shared/dropdown' %>
       </div>
     <% end %>
   </nav>

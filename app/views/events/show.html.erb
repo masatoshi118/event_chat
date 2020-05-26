@@ -1,18 +1,16 @@
+<div class="mb-2">
+  <%= link_to 'トークルーム', "/events/#{@event.id}/chat_room", class: "btn main-color btn-block text-white" %>
+</div>
+
+
 <div>
   <% unless @event.user == current_user %>
     <% if @event.joins.exists?(user_id: current_user.id) %>
-      <%= link_to 'キャンセル', event_joins_path(@event), method: :delete, class: "btn btn-danger btn-block" %>
+      <%= link_to 'キャンセル', event_joins_path(@event), method: :delete, class: "btn active-color btn-block text-dark" %>
     <% else %>
       <%= link_to '参加する', event_joins_path(@event), method: :post, class: "btn btn-primary btn-block" %>
     <% end %>
   <% end %>
-
-  <p>
-    <% if @event.user == current_user %>
-      <%= link_to "削除", event_path(@event), method: :delete, data: { confirm: "削除しますか？" } %>
-      <%= link_to "編集", edit_event_path(@event) %>
-    <% end %>
-  </p>
 </div>
 
 <div class="mb-3 event-top">
@@ -48,25 +46,15 @@
   <span class="detale-body"><%= markdown(@event.content).html_safe %></span>
 </div>
 
-<div>
-  <% unless @event.user == current_user %>
-    <% if @event.joins.exists?(user_id: current_user.id) %>
-      <%= link_to 'キャンセル', event_joins_path(@event), method: :delete, class: "btn btn-danger btn-block" %>
-    <% else %>
-      <%= link_to '参加する', event_joins_path(@event), method: :post, class: "btn btn-primary btn-block" %>
-    <% end %>
-  <% end %>
+<div class="mb-2">
+  <%= link_to 'トークルーム', "/events/#{@event.id}/chat_room", class: "btn main-color btn-block text-white" %>
+</div>
 
-  <p>
+
+  <div>
+    <hr>
     <% if @event.user == current_user %>
-      <%= link_to "削除", event_path(@event), method: :delete, data: { confirm: "削除しますか？" } %>
-      <%= link_to "編集", edit_event_path(@event) %>
+      <%= link_to "編集", edit_event_path(@event), class: "btn btn-warning btn-block" %>
+      <%= link_to "削除", event_path(@event), method: :delete, data: { confirm: "削除しますか？" } , class: "btn btn-danger btn-block" %>
     <% end %>
-  </p>
-</div>
-
-
-<div>
-  <%= link_to 'トークルーム', "/events/#{@event.id}/chat_room", class: "btn btn-primary btn-block" %>
-</div>
-
+  </div>
