@@ -1,0 +1,24 @@
+<div class="message row" id="message-<%= message.id %>">
+  <figure class="col-2 icon mx-auto"><%= image_tag message.user.image_url, size: '45x45' %></figure>
+
+  <div class="col-10">
+    <div class="mb-2">
+      <div class="message-title">
+        <span class="font-weight-bold text-left"><%= message.user.name %></span>
+        <small class="text-muted">　　<%= l message.created_at, format: '%-m月%-d日 %H:%M' %></small>
+        <div class="dropdown d-inline-block ">
+          <!-- 切替ボタンの設定 -->
+          <a href="#" class="text-dark" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            　...
+          </a>
+          <!-- ドロップメニューの設定 -->
+          <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuLink">
+            <%= link_to '削除', message_path(message), method: :delete,  data: {confirm: "削除しますか?"}, class: "font-weight-normal" %>
+          </div><!-- /.dropdown-menu -->
+        </div><!-- /.dropdown -->
+      </div>
+      <p><%= simple_format(h(message.content)) %></p>
+    </div>
+
+  </div>
+</div>

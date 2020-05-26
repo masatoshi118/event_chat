@@ -1,0 +1,8 @@
+<%= render 'shared/flash_messages' %>
+<h2 class="room-title text-center mb-3"><%= @event.title%></h2>
+<div id="message-container" class="container">
+  <% @messages.each do |message|%>
+    <%= render message %>
+  <% end %>
+</div>
+<%= render 'footer' %>

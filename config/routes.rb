@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
   root to: 'events#index'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -10,4 +11,7 @@ Rails.application.routes.draw do
     resource :joins, only: [:create, :destroy]
   end
   get 'search', to: 'events#search'
+  get '/events/:id/chat_room', to: 'rooms#show'
+  resources :messages, only: [:create, :destroy]
+  mount ActionCable.server => '/cable'
 end

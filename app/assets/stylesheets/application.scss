@@ -140,8 +140,8 @@ table {
   justify-content: center;
   >li{
     >a{
-      border: none;     /*枠線をなくす*/
-      color: #696969;   /*文字の色を変える*/
+      border: none;
+      color: #696969;
 
       .page-link {
         background: $header-color;
@@ -156,7 +156,7 @@ table {
   >.active {
     >a {
       background-color: $header-color;
-      border-radius: 20px;     /*角を丸くする*/
+      border-radius: 20px;
     }
     >.page-link {
       background-color: $header-color;
@@ -164,3 +164,34 @@ table {
   }
 }
 
+// メッセージ一覧
+#message-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem 1rem 8rem 1rem;
+}
+
+// メッセージ投稿フォーム
+footer {
+  max-width: 768px;
+  padding: 1rem;
+  margin: 0 auto;
+  background-color: white;
+}
+
+// ボタン無効化時のスタイル
+.btn-primary.disabled {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  cursor: auto;
+}
+
+#message_content {
+  resize: none;
+}
+
+.room-title {
+  background-color: $bace-color;
+  padding: 1rem;
+  border-radius: 1rem;
+}
