@@ -1,0 +1,12 @@
+<footer class="fixed-bottom" id="footer">
+  <%= form_with model: @message do |f| %>
+    <div class="form-group">
+      <input type="hidden" name="event_id" value=<%= params[:id] %> >
+      <%= f.text_area :content, class: 'form-control', rows: '1' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit '送信', class: 'btn btn-primary btn-block disabled', id: 'message-button' %>
+    </div>
+  <% end %>
+</footer>

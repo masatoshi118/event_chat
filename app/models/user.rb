@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :joins, dependent: :destroy
   # user.joined_events で user が参加しているイベント一覧が取得できるようになる
   has_many :joined_events, through: :joins, source: :event
+  has_many :messages, dependent: :destroy
 
   mount_uploader :image, ImageUploader
   # ユーザーをuidで検索する。無ければproviderから情報を取得し作成する。

@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   has_many :joins, dependent: :destroy
   # event.joined_users で参加しているユーザー一覧が取得できるようになる
   has_many :joined_users, through: :joins, source: :user
+  has_many :messages
 
   validates :title, :venue, :datetime, :content,  presence: true
 
