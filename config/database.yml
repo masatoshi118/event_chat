@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: event_chat_production
-  username: event_chat
-  password: <%= ENV['EVENT_CHAT_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOSTNAME'] %>
