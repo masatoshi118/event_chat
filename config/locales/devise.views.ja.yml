@@ -32,7 +32,7 @@ ja:
         title: タイトル
         venue: 開催地
         datetime: 開催日時
-        image: 画像
+        event_image: 画像
         content: 内容
     models:
       user: ユーザ
