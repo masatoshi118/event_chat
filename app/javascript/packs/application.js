@@ -18,10 +18,13 @@ require("channels")
 
 require("bootstrap/dist/js/bootstrap")
 
+require("bs-custom-file-input")
 import bsCustomFileInput from 'bs-custom-file-input';
 $(document).on('ready turbolinks:load', function() {
   bsCustomFileInput.init();
 })
+
+
 
 require("moment/locale/ja")
 require("tempusdominus-bootstrap-4")
