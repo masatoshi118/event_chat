@@ -31,7 +31,6 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-   # 以下に置き換え
    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
    if Rails.application.credentials.gmail.present?
