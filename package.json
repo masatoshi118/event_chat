@@ -12,8 +12,7 @@
     "jquery": "^3.5.1",
     "moment": "^2.25.3",
     "popper.js": "^1.16.1",
-    "tempusdominus-bootstrap-4": "^5.1.2",
-    "turbolinks": "^5.2.0"
+    "tempusdominus-bootstrap-4": "^5.1.2"
   },
   "version": "0.1.0",
   "devDependencies": {
