@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[new create update destroy show]
   before_action :correct_user, only: %i[edit update destroy]
 
   def index

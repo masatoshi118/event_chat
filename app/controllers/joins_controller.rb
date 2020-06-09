@@ -1,5 +1,5 @@
 class JoinsController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :check_others_event
 
   def create
