@@ -42,7 +42,7 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
   ActionCable.server.config.disable_request_forgery_protection = true
   config.action_cable.url = 'wss://www.eventchat.xyz/cable'
-  config.action_cable.allowed_request_origins = [ 'http://www.eventchat.xyz' ]
+  config.action_cable.allowed_request_origins = [ 'http://www.eventchat.xyz', /https:\/\/www.eventchat.xyz.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
