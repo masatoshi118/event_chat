@@ -6,7 +6,9 @@
     <p class="card-text">
       <%= @user.description %>
     </p>
-    <a href="https://twitter.com/<%= @user.nickname %>" class="btn btn-primary"><i class="fa fa-twitter" aria-hidden="true"></i> My Twitter</a>
+    <% if @user.nickname %>
+      <a href="https://twitter.com/<%= @user.nickname %>" class="btn btn-primary"><i class="fa fa-twitter" aria-hidden="true"></i> My Twitter</a>
+    <% end %>
   </div>
 </div>
 
