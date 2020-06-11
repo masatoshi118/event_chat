@@ -31,7 +31,7 @@ class MessagesController < ApplicationController
 
   def correct_user
     @message = current_user.messages.find_by(id: params[:id])
-    flash[:notice]="投稿者のみ削除することができます。"
+    flash[:notice] = "投稿者のみ削除することができます。"
     redirect_to request.referrer || root_url if @message.nil?
   end
 
