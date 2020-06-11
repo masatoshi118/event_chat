@@ -12,13 +12,10 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    message = Message.find(params[:id])
-    if message.user == current_user
-      @message.destroy
-      flash[:success]="メッセージを削除しました。"
-      redirect_to request.referrer || root_url
-    else
-      flash[:alart]="投稿者のみ削除することができます。"
+    @message = Message.find(params[:id])
+    if @message.user == current_user
+      flash[:success] = "メッセージを削除しました。"
+      @message.destroy!
       redirect_to request.referrer
     end
   end
@@ -31,8 +28,10 @@ class MessagesController < ApplicationController
 
   def correct_user
     @message = current_user.messages.find_by(id: params[:id])
-    flash[:notice] = "投稿者のみ削除することができます。"
-    redirect_to request.referrer || root_url if @message.nil?
+    if @message.nil?
+      flash[:notice] = "投稿者のみ削除することができます。"
+      redirect_to request.referrer || root_url
+    end
   end
 
 end
