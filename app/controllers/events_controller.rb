@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   before_action :authenticate_user!, only: %i[new create update destroy show]
   before_action :correct_user, only: %i[edit update destroy]
+  before_action :event_exist?, only: %i[show edit]
 
   def index
     @q = Event.ransack(params[:q])
@@ -22,23 +23,39 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = current_user.events.create!(event_params)
-    Join.create!(user_id: current_user.id, event_id: event.id)
-    redirect_to action: :index
+    @event = current_user.events.new(event_params)
+    if @event.save
+      Join.create!(user_id: current_user.id, event_id: @event.id)
+      flash[:notice] = '新しいイベントを作成しました。'
+      redirect_to @event
+    else
+      render 'new'
+    end
   end
 
   def edit
-    @event = Event.find(params[:id])
+    @event = Event.find_by(id: params[:id])
   end
 
   def update
-    @event.update!(event_params)
-    redirect_to root_path
+    @event = Event.find_by(id: params[:id])
+    if @event.update(event_params)
+      flash[:notice] = "イベントを編集しました。"
+      redirect_to @event
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    @event.destroy!
-    redirect_to root_path
+    @event = Event.find_by(id: params[:id])
+    if @event.destroy
+      flash[:notice] = "イベントを削除しました。"
+      redirect_to root_path
+    else
+      flash[:alert] = "トークルームにコメントがある場合削除することができません。"
+      render 'show'
+    end
   end
 
   private
@@ -49,11 +66,22 @@ class EventsController < ApplicationController
 
     def correct_user
       @event = current_user.events.find_by(id: params[:id])
-      redirect_to root_path if @event.nil?
+      if @event.nil?
+        flash[:alert] = '作成者のみ編集・削除することができます。'
+        redirect_to root_path
+      end
     end
 
     def search_params
       params.require(:q).permit(:title_or_content_cont, :venue_cont, :datetime_lteq_end_of_day)
+    end
+
+    def event_exist?
+      event = Event.find_by(id: params[:id])
+      if event.blank?
+        flash[:alert] = '指定のURLは存在しないページです。'
+        redirect_back(fallback_location: root_path)
+      end
     end
 
 end

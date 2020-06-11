@@ -8,7 +8,7 @@
       <%= form.label :image, class: 'control-label' %>
       <div class="custom-file">
         <%= form.file_field :image, class: 'custom-file-input', id: "inputFile" %>
-        <label class="custom-file-label" for="inputFile">ファイルを選択して下さい</label>
+        <label class="custom-file-label" for="inputFile" data-browse="参照">ファイルを選択して下さい</label>
       </div>
     </div>
 
@@ -28,8 +28,8 @@
     <% end %>
 
     <%= form_with model: @user, url: {action: 'user_update'} do |f| %>
-      <%= f.submit 'Twitterアカウント情報を読み込み', class: 'btn btn-dark btn-block' %>
-      <small class="form-text text-muted">Twitter連携をするとプロフィールが取得できます</small>
+      <%= f.submit 'Twitterアカウント情報を読み込む', class: 'btn btn-dark btn-block', data: { confirm: "Twitterアカウントのプロフィールを反映させますか？" } %>
+      <small class="form-text text-muted">※Twitter連携をするとプロフィールが取得できます</small>
     <% end %>
 </div>
 <script>

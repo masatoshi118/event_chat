@@ -1,11 +1,14 @@
 <%= render 'shared/flash_messages' %>
 
 <div>
+  <% if @event.joins.exists?(user_id: current_user.id) %>
+    <div class="mb-2">
+      <%= link_to 'トークルーム', "/events/#{@event.id}/chat_room", class: "btn main-color btn-block text-white" %>
+    </div>
+  <% end %>
+
   <% unless @event.user == current_user %>
     <% if @event.joins.exists?(user_id: current_user.id) %>
-      <div class="mb-2">
-        <%= link_to 'トークルーム', "/events/#{@event.id}/chat_room", class: "btn main-color btn-block text-white" %>
-      </div>
       <%= link_to 'キャンセルする', event_joins_path(@event), method: :delete, class: "btn active-color btn-block text-dark", data: { confirm: "キャンセルしますか？" } %>
     <% else %>
       <%= link_to '参加する', event_joins_path(@event), method: :post, class: "btn btn-primary btn-block" %>
@@ -43,7 +46,9 @@
 
 <div class="event-detaile mb-3">
   <h6 class="event-title">イベント詳細</h6>
-  <span class="detale-body"><%= markdown(@event.content).html_safe %></span>
+  <div class="p-3">
+    <span class="detale-body"><%= markdown(@event.content).html_safe %></span>
+  </div>
 </div>
 
 <div>
