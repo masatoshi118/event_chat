@@ -1,15 +1,17 @@
-<div class="media">
-  <div class="mr-3">
-      <a class="image_link" href="<%= event_path(event.id) %>" title="<%= event.title %>">
-        <%= image_tag event.event_image_url, size: '100x80', alt: "event image" %>
+<div class="media row">
+  <div class="col-md-3">
+    <div class="eyechatch">
+      <a class="text-center" href="<%= event_path(event.id) %>" title="<%= event.title %>">
+        <%= image_tag event.event_image_url, alt: "event image", class: "event-image" %>
       </a>
       <% if event.datetime > Time.current %>
-        <span class="d-block bg-warning mt-2 text-center"><%= "開催前" %></span>
+        <span class="event-label d-block bg-warning my-2 text-center"><%= "開催前" %></span>
       <% else %>
-        <span class="d-block bg-secondary mt-2 text-center text-white"><%= "開催済み" %></span>
+        <span class="event-label d-block bg-secondary my-2 text-center text-white"><%= "開催済み" %></span>
       <% end %>
+    </div>
   </div>
-  <div class="media-body">
+  <div class="col-md-9">
     <h5 class="mt-0"><%= link_to "#{event.title}", event_path(event.id), class: "text-dark " %></h5>
     <p class="text-black mb-0">【　日時　】 <%= l event.datetime, format: '%Y年 %-m月 %-d日 %H:%M' %></p>
     <p class="text-black mb-1">【開催場所】 <%= event.venue %></p>

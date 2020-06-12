@@ -60,6 +60,10 @@ $form-text-color: #495057;
   }
 }
 
+.logo {
+  font-size: 2rem;
+}
+
 .dropdown:hover {
   .dropdown-menu {
     display: block;
@@ -71,6 +75,17 @@ $form-text-color: #495057;
     top: 20px;
     left: 20px;
   }
+}
+
+.event-image {
+  width: 100px;
+  height: 80px;
+}
+
+.eyechatch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card-nickname {
@@ -213,4 +228,29 @@ table {
 .page-footer {
   background-color: $footer-color;
   color: white;
+}
+
+@media screen and (max-width: 767px) {
+  .base-container {
+    padding: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 70px;
+  }
+
+  .headding {
+    font-size: 1.2rem;
+  }
+
+  .event-image {
+    width: auto;
+    height: 150px;
+  }
+
+  .event-label {
+    text-align: center;
+  }
+
+  .event-show-wrapper {
+    margin: 0.5rem;
+  }
 }
