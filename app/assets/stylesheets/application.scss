@@ -258,7 +258,9 @@ table {
     font-size: 1rem;
     padding: 0.5rem;
   }
+}
 
+@media screen and (max-width: 576px) {
   .dropdown-menu {
     position: initial;
   }
