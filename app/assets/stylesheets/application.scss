@@ -203,9 +203,13 @@ table {
 // メッセージ投稿フォーム
 .input-form {
   max-width: 768px;
-  padding: 1rem;
-  margin: 0 auto;
+  padding: 0 1rem;
   background-color: white;
+  position: fixed;
+  bottom: 56px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 100%;
 }
 
 // ボタン無効化時のスタイル
@@ -229,6 +233,8 @@ table {
   background-color: $footer-color;
   color: white;
 }
+
+
 
 @media screen and (max-width: 767px) {
   .base-container {
