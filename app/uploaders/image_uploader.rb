@@ -8,7 +8,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   # thumb バージョン(width 400px x height 200px)
   version :thumb do
-    process :resize_to_fit => [400, 200]
+    process :resize_to_fit => [400, 400]
   end
   # 許可する画像の拡張子
   def extension_white_list

@@ -1,5 +1,5 @@
 <div class="card mb-3">
-  <%= image_tag @user.image_url, :size => '180x180', class: "card-image-top" %>
+  <%= image_tag @user.image_url, class: "card-image-top" %>
   <div class="card-body">
     <h4 class="card-title"><%= @user.name %></h4>
     <small class="form-text text-muted card-nickname"><%= @user.nickname %></small>
@@ -7,7 +7,7 @@
       <%= @user.description %>
     </p>
     <% if @user.nickname %>
-      <a href="https://twitter.com/<%= @user.nickname %>" class="btn btn-primary"><i class="fa fa-twitter" aria-hidden="true"></i> My Twitter</a>
+      <a href="https://twitter.com/<%= @user.nickname %>" class="btn btn-primary" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> My Twitter</a>
     <% end %>
   </div>
 </div>
