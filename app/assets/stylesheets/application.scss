@@ -75,11 +75,31 @@ $form-text-color: #495057;
     top: 20px;
     left: 20px;
   }
+  display: block;
+  object-fit: cover;
+  width: 180px;
+  height: 180px;
 }
 
 .event-image {
   width: 100px;
   height: 80px;
+}
+
+.avater-img {
+  display: block;
+  object-fit: cover;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 1rem;
+}
+
+.avater-icon {
+  object-fit: cover;
+}
+
+.hidden {
+  display: none;
 }
 
 .eyechatch {
@@ -237,6 +257,18 @@ table {
 
 
 @media screen and (max-width: 767px) {
+  div, img {
+    max-width: 100%;
+    height: auto;
+  }
+  iframe {
+    max-width: 100%;
+  }
+  table {
+    width: 100%;
+  }
+
+
   .base-container {
     padding: 0.5rem;
     padding-top: 0.5rem;

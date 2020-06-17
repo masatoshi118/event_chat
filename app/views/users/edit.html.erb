@@ -5,7 +5,15 @@
     <%= form_with model: @user do |form| %>
 
     <div class="form-group">
+
       <%= form.label :image, class: 'control-label' %>
+      <img id="img_prev" src="#" class='hidden avater-img' />
+      <% if current_user.persisted? && current_user.image? %>
+        <%= image_tag current_user.image.to_s, class: 'present_img avater-img' %>
+      <% else %>
+        <%= image_tag 'default_image.png', class: 'present_img' %>
+      <% end %>
+
       <div class="custom-file">
         <%= form.file_field :image, class: 'custom-file-input', id: "inputFile" %>
         <label class="custom-file-label" for="inputFile" data-browse="参照">ファイルを選択して下さい</label>
